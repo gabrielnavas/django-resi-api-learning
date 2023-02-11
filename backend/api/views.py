@@ -1,6 +1,14 @@
-from django.http import JsonResponse
+import json
+from django.http import JsonResponse, HttpRequest
 
-def api_home(request, *args, **kargs):
+def api_home(request: HttpRequest, *args, **kargs):
+    data = {}
+    try:
+        data = json.loads(request.body)
+    except:
+        pass
+    data["params"] = request.GET
+    data["headers"] = request.headers
     return JsonResponse({
-        "message": "hello world"
+        "data": "hello world"
     })
