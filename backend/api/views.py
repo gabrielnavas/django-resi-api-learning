@@ -10,8 +10,8 @@ def api_home(request, *args, **kargs):
     """
     DRF API View
     """
-    model_data = Product.objects.all().order_by('?').first()
+    model_data = Product.objects.all().first()
     data = {}
     if model_data:
-        data = model_to_dict(model_data, fields=['id', 'title', 'price'])
+        data = model_to_dict(model_data, fields=['id', 'title', 'price', 'sale_price'])
     return Response(data)
