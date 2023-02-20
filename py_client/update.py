@@ -1,7 +1,7 @@
 import pprint
 import requests
 
-endpoint = "http://127.0.0.1:8000/api/products/1/update"
+endpoint = "http://127.0.0.1:8000/api/products/2/update"
 
 data = {
     "title": "hello my old friend",
